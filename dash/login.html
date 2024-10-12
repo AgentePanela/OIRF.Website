@@ -68,7 +68,7 @@
                 });
 
                 const data = await response.json();
-
+                console.log(data);
                 if (response.status === 200) {
                     messageDiv.innerHTML = `<p style="color: green;">${data.message}</p>`;
                 } else if (response.status === 400) {
