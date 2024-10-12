@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omicron Inc. Research Facility</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- for load the navbar script -->
+    <script src="../navLoader.js"></script>
+    <!-- <script src="register.js"></script> -->
+
+    <meta property="og:title" content="Omicron Inc. Research Facility">
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://oirf.online">
+    <meta property="og:image" content="/LogoNoBg.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:description" content="Welcome to the Omicron Inc. Research Facility!">
+    <meta name="theme-color" content="#0E0093">
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link href="../style.css?v=1.0" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+	<div id="navbar-repo"></div>
+
+    <div class="main">
+	<img src="../media/gifs/ConstructionBar.gif">
+
+        <h1>Register your account (BETA)</h1>
+
+        <div id="message"></div>
+
+        <form id="userForm" method="post">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email"><br><br>
+
+            <label for="username">Username: </label>
+            <input id="username" name="username"><br><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password"><br><br>
+
+            <input type="checkbox" id="tos">
+            <label for="tos">I'm +13 and agree with the </label>
+            <a href="../terms">terms</a><br><br>
+			
+			<button type="submit">Register</button>
+        </form>
+
+        <br><br>
+
+        <small>The Super Insane Employee Register Screen&trade; is a trademark of Omicron Incorporated, 1985.</small>
+    </div>
+    <script>
+        document.getElementById('userForm').addEventListener('submit', async function(event) {
+    event.preventDefault();
+    console.log("Connecting...")
+
+    const username = document.getElementById('username').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const messageDiv = document.getElementById('message');
+
+    try {
+        const response = await fetch('https://oirf.online/app/api/save-user', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, email, password }) 
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            messageDiv.innerHTML = `<p style="color: green;">${data.message}</p>`;
+        } else {
+            messageDiv.innerHTML = `<p style="color: red;">${data.message}</p>`;
+            console.error(data.message);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        messageDiv.innerHTML = `<p style="color: red;">Error connecting to the server!.</p>`;
+    }
+});
+
+    </script>
+</body>
+</html>

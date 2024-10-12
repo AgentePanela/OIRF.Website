@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- for load the navbar script -->
+    <script src="../navLoader.js"></script>
+
+    <meta property="og:title" content="Omicron Inc. Research Facility">
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://oirf.online">
+    <meta property="og:image" content="/media/gifs/OIRF-NES.gif">
+    <meta property="og:image:type" content="image/gif">
+    <meta property="og:description" content="Buy the OIRF game for $2,50!">
+    <meta name="theme-color" content="#0E0093">
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link href="../style.css?v=1.0" rel="stylesheet" type="text/css" media="all">
+    <title>Buy OIRF</title>
+    <style>
+
+        .container {
+            position: relative;
+            flex: 1;
+        }
+
+        /* Definindo o GIF como fundo */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://img.clipart-library.com/2/clip-falling-money-gif/clip-falling-money-gif-13.gif');
+            background-size: cover;
+
+            opacity: 0.4; /* Controle da opacidade do fundo */
+            z-index: -1; /* Enviar o fundo para trás */
+        }
+
+        h1 {
+            font-size: 42px;
+            color: #FF4500; /* Cor vibrante para dar destaque */
+            text-shadow: 2px 2px #000;
+        }
+
+        .game-banner {
+            width: 400px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .game-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            background-image: url("https://oirf.online/media/promo.png");
+            background-size: cover;
+
+            opacity: 0.4; /* Controle da opacidade do fundo */
+            z-index: -1; /* Enviar o fundo para trás */
+        }
+
+        .price-tag {
+            position: relative;
+            display: inline-block;
+            padding: 15px;
+            background-color: #ffd700;
+            border-radius: 50%;
+            font-size: 36px;
+            font-weight: bold;
+            color: #d70000;
+            text-shadow: 1px 1px #fff;
+        }
+
+        .price-tag:after {
+            content: '';
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 25px;
+            border-style: solid;
+            border-color: #ffd700 transparent transparent transparent;
+        }
+
+        .buy-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 30px;
+            background-color: #0a0093;
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: none;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .buy-button:hover {
+            color: yellow;
+        }
+
+        .buy-button:active {
+            color: yellow;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar-repo"></div>
+
+    <div class="container">
+        <div class="main">
+            <h1>Omicron Inc. 
+                Research Facility</h1>
+            <img class="game-banner" src="https://oirf.online/media/OIRF-NES.png" sizes="80%" alt="OIRF logo">
+            <div class="price-tag">R$ 15,00</div>
+            <br>
+            <button class="buy-button" onclick="rickroll()">Buy Now!!!!!!!!!!!!!!!!!!!!!!!!!!</button>
+        </div>
+    </div>
+
+    <script>
+        function rickroll() {
+            window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+        }
+    </script>
+</body>
+</html>

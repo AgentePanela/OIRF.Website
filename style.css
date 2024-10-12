@@ -1,0 +1,81 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    font-family: Comic Sans MS;
+    color: #000000;
+    background-color: #000000;
+    background-image: url('../media/background.gif');
+    background-position: top;
+}
+
+.main {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+/* navbar */
+header {
+    background-color: #0a0093;
+    padding: 10px 20px;
+    border-bottom: 1px solid yellow;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+/* Logo à esquerda */
+.navbar-logo {
+    margin-left: 10px;
+}
+
+/* Centralizar as opções da navbar */
+.navbar-options {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+.navbar-nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-nav li {
+    margin-left: 22px;
+    color: rgb(218, 218, 218);
+    user-select: none;
+}
+
+.navbar-nav a {
+    text-decoration: none;
+    color: rgb(218, 218, 218);
+}
+
+.navbar-nav a:hover {
+    color: yellow;
+}
+
+/* Link de login à direita */
+.navbar-login {
+    margin-right: 20px;
+}
+
+.navbar-login a {
+    text-decoration: none;
+    color: rgb(218, 218, 218);
+}
+
+.navbar-login a:hover {
+    color: yellow;
+}
