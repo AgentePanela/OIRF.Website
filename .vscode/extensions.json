@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "ms-vscode.live-server",
+        "aaron-bond.better-comments",
+        "ecmel.vscode-html-css",
+        "ms-vscode.vscode-typescript-next"
+    ]
+}
