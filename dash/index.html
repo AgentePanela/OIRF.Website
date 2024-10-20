@@ -201,7 +201,7 @@
     function haveAccount() {
         document.getElementById("main").style.contentVisibility = "visible";
         document.getElementById("loading").style.contentVisibility = "hidden";
-        document.getElementById("welcomeText").innerHTML = `Welcome <span class="blue"><b>${data.username}<b></span>!`;
+        //document.getElementById("welcomeText").innerHTML = `Welcome <span class="blue"><b>${data.username}<b></span>!`;
         document.getElementById("username").innerText = data.username;
         document.getElementById("email").innerHTML = data.email;
         document.getElementById("creationDate").innerText = formatDate(data.creation_date);
