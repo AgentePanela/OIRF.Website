@@ -24,6 +24,7 @@ export async function autoLogin() {
         } else if (response.status === 400) {
             data.code = 400
             console.error(data.message);
+            logoutAccount();
             return(data);
         }
     } catch (error) {
