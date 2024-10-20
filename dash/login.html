@@ -73,6 +73,7 @@
                     localStorage.setItem("logged", true);
                     localStorage.setItem("username", username);
                     localStorage.setItem("password", btoa(password));
+					localStorage.setItem("token", data.token)
                     setTimeout(function(){
                         window.location = "/dash/";
                     }, 1000); //1s
