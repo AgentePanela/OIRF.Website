@@ -17,7 +17,7 @@
     <meta name="theme-color" content="#0E0093">
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/style.css?v=1.0" rel="stylesheet" type="text/css" media="all">
 </head>
 
 <body>
@@ -33,18 +33,15 @@
             <input id="username" name="username"><br><br>
 
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password"><br><br>
+            <input type="password" id="password" name="password"><br>
 
-            <input type="checkbox" id="tos">
-            <label for="tos">I agree with the </label>
-            <a href="../terms">terms</a><br><br>
-
+            <a href="/dash/signup"> Dont have a Account?</a><br><br>
             <button type="submit">Login</button>
         </form>
 
         <br><br>
 
-        <small>The Super Insane Employee Register Screen&trade; is a trademark of Omicron Incorporated, 1985.</small>
+        <small>The Super Amazing Employee Log-in System&trade; is a trademark of Omicron Incorporated, 1985.</small>
     </div>
 
     <script>
@@ -72,6 +69,13 @@
                 const data = await response.json();
                 if (response.status === 200) {
                     messageDiv.innerHTML = `<p style="color: green;">${data.message}</p>`;
+                    console.log(data);
+                    localStorage.setItem("logged", true);
+                    localStorage.setItem("username", username);
+                    localStorage.setItem("password", btoa(password));
+                    setTimeout(function(){
+                        window.location = "/dash/";
+                    }, 1000); //1s
                 } else if (response.status === 400) {
                     messageDiv.innerHTML = `<p style="color: red;">${data.message}</p>`;
                     console.error(data.message);

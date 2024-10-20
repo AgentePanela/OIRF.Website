@@ -6,6 +6,7 @@
     <title>Omicron Inc. Research Facility</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- for load the navbar script -->
     <script src="../navLoader.js"></script>
+    <script type="module" src="/dash/autoLogin.js"></script> <!-- module because is a module... -->
 
     <meta property="og:title" content="OIRF Account Manager">
     <meta property=”og:type” content=”website“/>
@@ -18,15 +19,187 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
     <link href="/style.css?v=1.0" rel="stylesheet" type="text/css" media="all" href="css/yourStyles.css?version=1">
-    <meta http-equiv="refresh" content="2; URL='/dash/signup'"/>
+
+    <style>
+        .loading {
+            content-visibility: visible;
+        }
+
+        .main {
+            width: 100%;
+        }
+
+        .home {
+            content-visibility: hidden;
+            text-align: left;
+        }
+
+        .homeHeader {
+            line-height: 99%;
+            text-align: center;
+        }
+
+        .info {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-top: 3%;
+            text-align: left;
+            border-radius: 8px;
+            background-color: #f0f0f0;
+            padding: 15px;
+        }
+        .info h3 {
+            text-align: left;
+            color: #0a0093;
+            padding: 1px;
+            line-height: 1%;
+        }
+
+        .gif {
+            /* 220x220 image*/
+            flex: 1;
+            padding-left: 10px;
+            padding-right: 10px;
+            align-items: center;
+            text-align: center;
+        }
+        .gif img {
+            height: 250px;
+            width: 250px;
+        }
+
+        .option {
+            margin-top: 3%;
+            text-align: left;
+            border-radius: 8px;
+            border-color: #0a0093;
+            border-width: 5px;
+            background-color: #f0f0f0;
+            padding: 15px;
+        }
+        .option h3 {
+            text-align: left;
+            color: #0a0093;
+            padding: 1px;
+            line-height: 1%;
+        }   
+        .option label {
+            text-align: left;
+        }
+
+        .blue {
+            color: #0a0093;
+        }
+
+        .sad {
+            color: red;
+        }
+        .happy {
+            color: green;
+        }
+
+    </style>
 </head>
 <body>
 <!-- repo the navbar -->
 <div id=navbar-repo></div>
 
 <div class="main">
-    <h2> Please Wait </h2>
-    <img class="loading" src="/media/gifs/loading.gif" alt="loading...">
+    <div clss="loading" id="loading">
+        <h2> Please Wait </h2>
+        <img class="loading" src="/media/gifs/loading.gif" alt="loading...">
+    </div>
+
+    <div class="home" id="main">
+        <div class="homeHeader">
+            <h1>Manage Account:</h1>
+            <h2 id="welcomeText">hello {username}!</h2>
+            <br>
+        </div>
+        <div class="info">
+            <div class="content">
+                <h3><span id="username"></span>:</h3>
+                <b>Creation date: </b> <span id="creationDate"></span> <br>
+                <b>Email: </b> <span id="email"></span> <br>
+                <b>Itch.io: </b> <span id="itch" class="sad">not linked</span> <br>
+                <b>Games: </b> <span id="games" class="sad">no games</span>
+            </div>
+            <div class="gif">
+                <img src="../media/gifs/happy.gif" alt="you!"><br>
+                <small class="center">After all, still you.</small>
+            </div>
+        </div>
+        <div class="option">
+            <h3>Change email:</h3>
+            <form>
+                <label>New email: </label>
+                <input>
+                <button>Confirm</button>
+            </form>
+        </div>
+        <div class="option">
+            <h3>Change username:</h3>
+            <form>
+                <label>New username: </label>
+                <input>
+                <button>Confirm</button>
+            </form>
+        </div>
+        <div class="option">
+        <h3>Change password:</h3>
+            <form>
+                <label>Old password:  </label>
+                <input> <br>
+                <label>New password: </label>
+                <input>
+                <button>Confirm</button>
+            </form>
+        </div>
+    </div>
+    </div>
+    <br><br>
+    <small>The Spectacular Account System&trade; is a trademark of Omicron Incorporated, 1985.</small>
 </div>
+
+<script type="module"> //remember to use type="module" when using a module script
+    import { autoLogin } from '/dash/autoLogin.js';
+    
+    const data = await autoLogin(); //await because autoLogin is async
+    if(data.code == 200){
+        haveAccount();
+    }
+    else if(data.code == 400){
+        alert(`Error connecting to your account: ${code.message}`)
+        dontHaveAccount();
+    }
+    else if(data.code == -1){
+        alert(`Error! (${data.message})`)
+    }
+    else {
+        dontHaveAccount();
+    }
+
+
+    function dontHaveAccount() {
+        console.log("Dont have a account?")
+        setTimeout(function(){
+            window.location = "/dash/login.html";
+        }, 1000); //1s
+    }
+    function haveAccount() {
+        document.getElementById("main").style.contentVisibility = "visible";
+        document.getElementById("loading").style.contentVisibility = "hidden";
+        document.getElementById("welcomeText").innerHTML = `Welcome <span class="blue"><b>${data.username}<b></span>!`;
+        document.getElementById("username").innerText = data.username;
+        document.getElementById("email").innerHTML = data.email;
+        document.getElementById("creationDate").innerText = formatDate(data.creation_date);
+    }
+
+    function formatDate(isoString) {
+        const date = new Date(isoString);
+        return date.toLocaleDateString('en-US');
+    }
+</script>
 </body>
 </html>
