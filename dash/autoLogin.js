@@ -20,7 +20,6 @@ export async function autoLogin() {
         if (response.status === 200) {
             data.code = 200
             console.log("sucess!");
-            console.log(data);
             return(data);
         } else if (response.status === 400) {
             data.code = 400
@@ -33,4 +32,11 @@ export async function autoLogin() {
         console.error('Error:', error);
         return(data);
     }
+}
+
+export function logoutAccount(){
+    localStorage.removeItem("logged");
+    localStorage.removeItem("username");
+    localStorage.removeItem("password");
+    location.reload();
 }

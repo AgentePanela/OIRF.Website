@@ -130,30 +130,35 @@
                 <small class="center">After all, still you.</small>
             </div>
         </div>
+        <!--todo: put a line here-->
+        <div class="option">
+            <h3><span class="sad">Log-out:</span></h3>
+            <button style="width: 100%;" type="submit" id="logout"><span class="sad">Log-out account</span></button>
+        </div>
         <div class="option">
             <h3>Change email:</h3>
             <form>
-                <label>New email: </label>
-                <input>
-                <button>Confirm</button>
+                <label>New email: </label><Br>
+                <input style="width: 80%;">
+                <button id="wip">Confirm</button>
             </form>
         </div>
         <div class="option">
             <h3>Change username:</h3>
             <form>
                 <label>New username: </label>
-                <input>
-                <button>Confirm</button>
+                <input style="width: 80%;">
+                <button id="wip">Confirm</button>
             </form>
         </div>
         <div class="option">
-        <h3>Change password:</h3>
+            <h3>Change password:</h3>
             <form>
-                <label>Old password:  </label>
-                <input> <br>
-                <label>New password: </label>
-                <input>
-                <button>Confirm</button>
+                <label><span class="sad">Old password</span>:  </label>
+                <input style="width: 80%;"> <br><br>
+                <label><span class="happy">New password</span>: </label>
+                <input style="width: 80%;">
+                <button id="wip">Confirm</button>
             </form>
         </div>
     </div>
@@ -164,6 +169,7 @@
 
 <script type="module"> //remember to use type="module" when using a module script
     import { autoLogin } from '/dash/autoLogin.js';
+    import { logoutAccount } from '/dash/autoLogin.js';
     
     const data = await autoLogin(); //await because autoLogin is async
     if(data.code == 200){
@@ -200,6 +206,18 @@
         const date = new Date(isoString);
         return date.toLocaleDateString('en-US');
     }
+
+    document.getElementById("logout").onclick = function() {
+        if (confirm("You really want logout?") == true) {
+            logoutAccount();
+        }
+    };
+
+    //for wip buttons
+    document.getElementById("wip").onclick = function() {
+        alert("WIP!")
+    };
+    
 </script>
 </body>
 </html>

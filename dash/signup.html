@@ -79,6 +79,9 @@
 
                 if (response.ok) {
                     messageDiv.innerHTML = `<p style="color: green;">${data.message}</p>`;
+                    setTimeout(function(){
+                        window.location = "/dash/login";
+                    }, 1000); //1s
                 } else {
                     messageDiv.innerHTML = `<p style="color: red;">${data.message}</p>`;
                     console.error(data.message);
