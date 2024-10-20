@@ -14,6 +14,20 @@ body {
     background-position: top;
 }
 
+input {
+    outline: none;
+    border-radius: 0%;
+    font-family: Comic Sans MS;
+    border-color: black;
+}
+
+button {
+    outline: none;
+    border-radius: 0%;
+    font-family: Comic Sans MS;
+    border-color: black;
+}
+
 .main {
     max-width: 600px;
     margin: 20px auto;

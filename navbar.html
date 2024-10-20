@@ -4,7 +4,7 @@
 <header>
     <div class="navbar-logo">
         <!-- Logo ajustada -->
-        <img src="../media/logoNoBg.png" onclick="window.location='/';" height='54' alt="home page">
+        <img src="../media/logoNoBg.png" onclick="window.location='/';" height='40' width="40" alt="home page">
     </div>
     <div class="navbar-options">
         <ul class="navbar-nav">
@@ -17,8 +17,22 @@
         <!-- <img src="../media/gifs/Money.gif" onclick="window.location='/buy';" height='54' style="padding-left: 1%;" alt="secrets!"> -->
     </div>
     <div class="navbar-login">
-        <a class="nav-link" href="/dash/">ACCOUNT</a>
+        <a class="nav-link" id="account" href="/dash/">ACCOUNT</a>
     </div>
+    
 </header>
+    <script type="module"> //remember to use type="module" when using a module script
+        import { autoLogin } from '/dash/autoLogin.js';
+    
+        const element = document.getElementById("account")
+        const data = await autoLogin(); //await because autoLogin is async
+        if(data.code == 200){
+            let text = data.username;
+            element.innerText = text.toUpperCase();
+        }
+        else {
+            element.innerText = "LOGIN";
+        }
+    </script>
 </body>
 </html>
