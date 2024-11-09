@@ -8,7 +8,7 @@ document.getElementById('userForm').addEventListener('submit', async function(ev
     const messageDiv = document.getElementById('message');
 
     try {
-        const response = await fetch('https://oirf.online/app/api/save-user', {
+        const response = await fetch('https://oirf.online/app/api/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, email, password }) 

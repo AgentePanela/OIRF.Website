@@ -35,7 +35,7 @@
             <label for="password">Password:</label>
             <input type="password" id="password" name="password"><br>
 
-            <a href="/dash/signup"> Dont have a Account?</a><br><br>
+            <a href="/dash/signup"> Dont have an Account?</a><br><br>
             <button type="submit">Login</button>
         </form>
 
@@ -60,7 +60,7 @@
             const messageDiv = document.getElementById('message');
 
             try {
-                const response = await fetch('https://oirf.online/app/api/validate-user', {
+                const response = await fetch('https://oirf.online/app/api/login', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ username, password })
