@@ -10,7 +10,7 @@ export async function autoLogin() {
         return(data);
     }
     try {
-        const response = await fetch('https://oirf.online/app/api/login', {
+        const response = await fetch('https://oirf.online/app/api/users/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password })
