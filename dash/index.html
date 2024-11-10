@@ -180,7 +180,7 @@
     </div>
 
     <script type="module"> //remember to use type="module" when using a module script
-        import { sessionRefresh, isSessionValid, logout } from '/dash/session.js';
+        import { refreshSession, isSessionValid, logout } from '/dash/session.js';
         import { getUserData } from '/dash/userApi.js';
 
         if (!(await isSessionValid())) {
