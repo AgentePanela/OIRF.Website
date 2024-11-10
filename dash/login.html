@@ -75,9 +75,9 @@
                 if (response.status === 200) {
                     messageDiv.innerHTML = `<p style="color: green;">${data.message}</p>`;
                     console.log(data);
-                    sessionStorage.setItem("sessionToken", btoa(data.sessionToken));
+                    sessionStorage.setItem("sessionToken", data.sessionToken);
                     if (keepLoggedIn)
-                        localStorage.setItem("refreshToken", btoa(data.refreshToken));
+                        localStorage.setItem("refreshToken", data.refreshToken);
                     setTimeout(function () {
                         window.location = "/dash/";
                     }, 1000); //1s
