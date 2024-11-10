@@ -7,8 +7,6 @@
     <title>Omicron Inc. Research Facility</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- for load the navbar script -->
     <script src="../navLoader.js"></script>
-    <script type="module" src="/dash/sessionApi.js?v=0.1.0"></script> <!-- module because is a module... -->
-    <script type="module" src="/dash/userApi.js?v=0.1.0"></script>
 
     <meta property="og:title" content="OIRF Account Manager">
     <meta property=”og:type” content=”website“ />
@@ -180,7 +178,7 @@
     </div>
 
     <script type="module"> //remember to use type="module" when using a module script
-        import { refreshSession, isSessionValid, logout } from '/dash/sessionApi.js?v=0.1.0';
+        import { refreshSession, isSessionValid, logout } from '/dash/sessionApi.js?v=0.1.1';
         import { getUserData } from '/dash/userApi.js?v=0.1.0';
 
         if (!(await isSessionValid())) {
