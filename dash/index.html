@@ -189,8 +189,10 @@
                 window.location = "/dash/login.html";
             }, 1000);
         } else {
+            console.log("Valid session. Logged in.")
             const sessionToken = atob(localStorage.getItem("sessionToken"));
             const data = getUserData(["username", "email", "creation_date"], sessionToken);
+            console.log(data);
             document.getElementById("main").style.contentVisibility = "visible";
             document.getElementById("loading").style.contentVisibility = "hidden";
             //document.getElementById("welcomeText").innerHTML = `Welcome <span class="blue"><b>${data.username}<b></span>!`;
