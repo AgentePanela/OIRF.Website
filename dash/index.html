@@ -181,7 +181,7 @@
 
     <script type="module"> //remember to use type="module" when using a module script
         import { sessionRefresh, logoutAccount, isSessionValid } from '/dash/session.js';
-        import { getUserInfo } from '/dash/userApi.js';
+        import { getUserData } from '/dash/userApi.js';
 
         if (!(await isSessionValid())) {
             alert("You don't have an active session. Please log in or create an account")
@@ -190,7 +190,7 @@
             }, 1000);
         } else {
             const sessionToken = localStorage.getItem("sessionToken");
-            const data = getUserInfo(["username", "email", "creation_date"], sessionToken);
+            const data = getUserData(["username", "email", "creation_date"], sessionToken);
             document.getElementById("main").style.contentVisibility = "visible";
             document.getElementById("loading").style.contentVisibility = "hidden";
             //document.getElementById("welcomeText").innerHTML = `Welcome <span class="blue"><b>${data.username}<b></span>!`;
