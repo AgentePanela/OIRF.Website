@@ -41,7 +41,7 @@ export async function isSessionValid() {
     if (response.status === 200)
         return true;
 
-    return refreshToken();
+    return refreshSession();
 }
 
 export async function logout() {
