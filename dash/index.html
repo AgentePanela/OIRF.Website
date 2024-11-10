@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en-US">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Omicron Inc. Research Facility</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- for load the navbar script -->
     <script src="../navLoader.js"></script>
-    <script type="module" src="/dash/autoLogin.js"></script> <!-- module because is a module... -->
+    <script type="module" src="/dash/session.js"></script> <!-- module because is a module... -->
+    <script type="module" src="/dash/userApi.js"></script>
 
     <meta property="og:title" content="OIRF Account Manager">
-    <meta property=”og:type” content=”website“/>
+    <meta property=”og:type” content=”website“ />
     <meta property="og:url" content="https://oirf.online">
     <meta property="og:image" content="/LogoNoBg.png">
     <meta property="og:image:type" content="image/png">
@@ -49,6 +51,7 @@
             background-color: #f0f0f0;
             padding: 15px;
         }
+
         .info h3 {
             text-align: left;
             color: #0a0093;
@@ -64,6 +67,7 @@
             align-items: center;
             text-align: center;
         }
+
         .gif img {
             height: 250px;
             width: 250px;
@@ -78,12 +82,14 @@
             background-color: #f0f0f0;
             padding: 15px;
         }
+
         .option h3 {
             text-align: left;
             color: #0a0093;
             padding: 1px;
             line-height: 1%;
-        }   
+        }
+
         .option label {
             text-align: left;
         }
@@ -95,150 +101,132 @@
         .sad {
             color: red;
         }
+
         .happy {
             color: green;
         }
-
     </style>
 </head>
+
 <body>
-<!-- repo the navbar -->
-<div id=navbar-repo></div>
+    <!-- repo the navbar -->
+    <div id=navbar-repo></div>
 
-<div class="main">
-    <div clss="loading" id="loading">
-        <h2> Please Wait </h2>
-        <img class="loading" src="/media/gifs/loading.gif" alt="loading...">
-    </div>
-
-    <div class="home" id="main">
-        <div class="homeHeader">
-            <h1>Manage Your Account:</h1>
-            <!-- <h2 id="welcomeText">hello {username}!</h2> -->
-            <br>
+    <div class="main">
+        <div clss="loading" id="loading">
+            <h2> Please Wait </h2>
+            <img class="loading" src="/media/gifs/loading.gif" alt="loading...">
         </div>
-        <div class="info">
-            <div class="content">
-                <h3><span id="username"></span>:</h3>
-                <b>Creation date: </b> <span id="creationDate"></span> <br>
-                <b>Email: </b> <span id="email"></span> <br>
-                <b>Itch.io: </b> <span id="itch" class="sad">not linked</span> <br>
-                <b>Games: </b> <span id="games" class="sad">no games</span>
+
+        <div class="home" id="main">
+            <div class="homeHeader">
+                <h1>Manage Your Account:</h1>
+                <!-- <h2 id="welcomeText">hello {username}!</h2> -->
+                <br>
             </div>
-            <div class="gif">
-                <img src="../media/gifs/happy.gif" alt="you!"><br>
-                <small class="center">After all, still you.</small>
+            <div class="info">
+                <div class="content">
+                    <h3><span id="username"></span>:</h3>
+                    <b>Creation date: </b> <span id="creationDate"></span> <br>
+                    <b>Email: </b> <span id="email"></span> <br>
+                    <b>Itch.io: </b> <span id="itch" class="sad">not linked</span> <br>
+                    <b>Games: </b> <span id="games" class="sad">no games</span>
+                </div>
+                <div class="gif">
+                    <img src="../media/gifs/happy.gif" alt="you!"><br>
+                    <small class="center">After all, still you.</small>
+                </div>
+            </div>
+            <!--todo: put a line here-->
+            <div class="option">
+                <h3><span class="sad">Log-out:</span></h3>
+                <button style="width: 100%;" type="submit" id="logout"><span class="sad">Log-out account</span></button>
+            </div>
+
+            <div class="option">
+                <h3><span class="sad">All bellow options are WIP features!</span></h3>
+            </div>
+
+            <div class="option">
+                <h3>Change email:</h3>
+                <form>
+                    <label>New email: </label><Br>
+                    <input style="width: 80%;">
+                    <button id="newEmail">Confirm</button>
+                </form>
+            </div>
+            <div class="option">
+                <h3>Change username:</h3>
+                <form>
+                    <label>New username: </label>
+                    <input style="width: 80%;">
+                    <button id="newUsername">Confirm</button>
+                </form>
+            </div>
+            <div class="option">
+                <h3>Change password:</h3>
+                <form>
+                    <label><span class="sad">Old password</span>: </label>
+                    <input style="width: 80%;"> <br><br>
+                    <label><span class="happy">New password</span>: </label>
+                    <input style="width: 80%;">
+                    <button id="newPassword">Confirm</button>
+                </form>
             </div>
         </div>
-        <!--todo: put a line here-->
-        <div class="option">
-            <h3><span class="sad">Log-out:</span></h3>
-            <button style="width: 100%;" type="submit" id="logout"><span class="sad">Log-out account</span></button>
-        </div>
-
-        <div class="option">
-            <h3><span class="sad">All bellow options are WIP features!</span></h3>
-        </div>
-
-        <div class="option">
-            <h3>Change email:</h3>
-            <form>
-                <label>New email: </label><Br>
-                <input style="width: 80%;">
-                <button id="newEmail">Confirm</button>
-            </form>
-        </div>
-        <div class="option">
-            <h3>Change username:</h3>
-            <form>
-                <label>New username: </label>
-                <input style="width: 80%;">
-                <button id="newUsername">Confirm</button>
-            </form>
-        </div>
-        <div class="option">
-            <h3>Change password:</h3>
-            <form>
-                <label><span class="sad">Old password</span>:  </label>
-                <input style="width: 80%;"> <br><br>
-                <label><span class="happy">New password</span>: </label>
-                <input style="width: 80%;">
-                <button id="newPassword">Confirm</button>
-            </form>
-        </div>
+        <br><br>
+        <small>The Spectacular Account System&trade; is a trademark of Omicron Incorporated, 1985.</small>
     </div>
-    <br><br>
-    <small>The Spectacular Account System&trade; is a trademark of Omicron Incorporated, 1985.</small>
     </div>
-</div>
 
-<script type="module"> //remember to use type="module" when using a module script
-    import { autoLogin } from '/dash/autoLogin.js';
-    import { logoutAccount } from '/dash/autoLogin.js';
-    
-    const data = await autoLogin(); //await because autoLogin is async
-    if(data.code == 200){
-        haveAccount();
-    }
-    else if(data.code == 400){
-        alert(`Error connecting to your account: ${code.message}`)
-        dontHaveAccount();
-    }
-    else if(data.code == -1){
-        alert(`Error! (${data.message})`)
-    }
-    else {
-        dontHaveAccount();
-    }
+    <script type="module"> //remember to use type="module" when using a module script
+        import { sessionRefresh, logoutAccount, isSessionValid } from '/dash/session.js';
+        import { getUserInfo } from '/dash/userApi.js';
 
-
-    function dontHaveAccount() {
-        console.log("Dont have a account?")
-        setTimeout(function(){
-            window.location = "/dash/login.html";
-        }, 1000); //1s
-    }
-    function haveAccount() {
-        document.getElementById("main").style.contentVisibility = "visible";
-        document.getElementById("loading").style.contentVisibility = "hidden";
-        //document.getElementById("welcomeText").innerHTML = `Welcome <span class="blue"><b>${data.username}<b></span>!`;
-        document.getElementById("username").innerText = data.username;
-        document.getElementById("email").innerHTML = data.email;
-        document.getElementById("creationDate").innerText = formatDate(data.creation_date);
-    }
-
-    function formatDate(isoString) {
-        const date = new Date(isoString);
-        return date.toLocaleDateString('en-US');
-    }
-
-    //OPTIONS BELOW
-
-    //logout
-    document.getElementById("logout").onclick = function() {
-        if (confirm("You really want logout?") == true) {
-            logoutAccount();
+        if (!(await isSessionValid())) {
+            alert("You don't have an active session. Please log in or create an account")
+            setTimeout(function () {
+                window.location = "/dash/login.html";
+            }, 1000);
+        } else {
+            const sessionToken = localStorage.getItem("sessionToken");
+            const data = getUserInfo(["username", "email", "creation_date"], sessionToken);
+            document.getElementById("main").style.contentVisibility = "visible";
+            document.getElementById("loading").style.contentVisibility = "hidden";
+            //document.getElementById("welcomeText").innerHTML = `Welcome <span class="blue"><b>${data.username}<b></span>!`;
+            document.getElementById("username").innerText = data.username;
+            document.getElementById("email").innerHTML = data.email;
+            document.getElementById("creationDate").innerText = formatDate(data.creation_date);
         }
-    };
 
-    //new email
-    document.getElementById("newEmail").onclick = function() {
-        event.preventDefault();
-        alert("WIP!")
-    };
+        //OPTIONS BELOW
 
-    //new username
-    document.getElementById("newUsername").onclick = function() {
-        event.preventDefault();
-        alert("WIP!")
-    };
+        //logout
+        document.getElementById("logout").onclick = function () {
+            if (confirm("You really want logout?") == true) {
+                logoutAccount();
+            }
+        };
 
-    //change password
-    document.getElementById("newPassword").onclick = function() {
-        event.preventDefault();
-        alert("WIP!")
-    };
-    
-</script>
+        //new email
+        document.getElementById("newEmail").onclick = function () {
+            event.preventDefault();
+            alert("WIP!")
+        };
+
+        //new username
+        document.getElementById("newUsername").onclick = function () {
+            event.preventDefault();
+            alert("WIP!")
+        };
+
+        //change password
+        document.getElementById("newPassword").onclick = function () {
+            event.preventDefault();
+            alert("WIP!")
+        };
+
+    </script>
 </body>
+
 </html>

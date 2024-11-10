@@ -70,10 +70,8 @@
                 if (response.status === 200) {
                     messageDiv.innerHTML = `<p style="color: green;">${data.message}</p>`;
                     console.log(data);
-                    localStorage.setItem("logged", true);
-                    localStorage.setItem("username", username);
-                    localStorage.setItem("password", btoa(password));
-					localStorage.setItem("token", data.token)
+					localStorage.setItem("sessionToken", btoa(data.sessionToken));
+                    localStorage.setItem("refreshToken", btoa(data.refreshToken));
                     setTimeout(function(){
                         window.location = "/dash/";
                     }, 1000); //1s
