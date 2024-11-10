@@ -8,8 +8,7 @@ export async function refreshSession() {
     try {
         const response = await fetch('https://oirf.online/app/api/users/refresh', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ refreshToken: refreshToken })
+            headers: { 'Content-Type': 'application/json', 'X-Refresh-Token' : `Bearer: ${refreshToken}` }
         });
 		
         const result = await response.json();
@@ -36,8 +35,7 @@ export async function isSessionValid() {
 
     const response = await fetch('https://oirf.online/app/api/user?fields=username', {
         method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ sessionToken: sessionToken })
+        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${sessionToken}`},
     });
 
     if (response.status === 200)
@@ -55,8 +53,7 @@ export async function logout() {
 
     const response = await fetch('https://oirf.online/app/api/users/logout', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ sessionToken: sessionToken, refreshToken: refreshToken })
+        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${sessionToken}`, 'X-Refresh-Token': `${refreshToken}` },
     });
 
     if (response.status === 200) {
