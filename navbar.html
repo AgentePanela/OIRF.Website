@@ -30,7 +30,7 @@
         if (await isSessionValid()) {
             console.log("true")
             const sessionToken = atob(localStorage.getItem("sessionToken"));
-            const data = getUserData(["username"], sessionToken);
+            const data = await getUserData(["username"], sessionToken);
             element.innerText = data.username.toUpperCase();
         } else {
             element.innerText = "LOGIN";
