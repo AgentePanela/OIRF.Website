@@ -22,13 +22,13 @@
     
 </header>
     <script type="module"> //remember to use type="module" when using a module script
-        import { isSessionValid } from '/dash/sessionApi.js?v=0.1.1';
+        import { isSessionValid } from '/dash/sessionApi.js?v=0.1.2';
         import { getUserData } from '/dash/userApi.js?v=0.1.0';
 
         const element = document.getElementById("account")
 
         if (await isSessionValid()) {
-            const sessionToken = atob(sessionStorage.getItem("sessionToken"));
+            const sessionToken = sessionStorage.getItem("sessionToken");
             const data = await getUserData(["username"], sessionToken);
             element.innerText = data.username.toUpperCase();
         } else {

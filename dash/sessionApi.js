@@ -1,6 +1,6 @@
 console.log("Session module enabled!")
 export async function refreshSession() {
-    const refreshToken = atob(localStorage.getItem("refreshToken"));
+    const refreshToken = localStorage.getItem("refreshToken");
 
     if(!refreshToken)
         return;
@@ -15,7 +15,7 @@ export async function refreshSession() {
 
         if (response.status === 200) {
             console.log("Session refreshed.")
-            sessionStorage.setItem("sessionToken", btoa(result.sessionToken));
+            sessionStorage.setItem("sessionToken", result.sessionToken);
             return true;
         } else if (response.status === 403) {
             console.error(response.message);
@@ -32,7 +32,7 @@ export async function refreshSession() {
 }
 
 export async function isSessionValid() {
-    const sessionToken = atob(sessionStorage.getItem("sessionToken"));
+    const sessionToken = sessionStorage.getItem("sessionToken");
 
     const response = await fetch('https://oirf.online/app/api/user?fields=username', {
         method: 'GET',
@@ -49,8 +49,8 @@ export async function logout() {
     if (!isSessionValid())
         return;
 
-    const sessionToken = atob(sessionStorage.getItem("sessionToken"));
-    const refreshToken = atob(localStorage.getItem("refreshToken"));
+    const sessionToken = sessionStorage.getItem("sessionToken");
+    const refreshToken = localStorage.getItem("refreshToken");
 
     const response = await fetch('https://oirf.online/app/api/users/logout', {
         method: 'POST',
