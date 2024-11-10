@@ -1,4 +1,4 @@
-async function getUserData(fields = [], token) {
+export async function getUserData(fields = [], token) {
 
     const url = new URL('https://oirf.online/app/api/user');
     if (fields.length > 0) {
