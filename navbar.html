@@ -28,7 +28,7 @@
         const element = document.getElementById("account")
 
         if (await isSessionValid()) {
-            const sessionToken = atob(localStorage.getItem("sessionToken"));
+            const sessionToken = atob(sessionStorage.getItem("sessionToken"));
             const data = await getUserData(["username"], sessionToken);
             element.innerText = data.username.toUpperCase();
         } else {

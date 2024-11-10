@@ -75,7 +75,7 @@
                 if (response.status === 200) {
                     messageDiv.innerHTML = `<p style="color: green;">${data.message}</p>`;
                     console.log(data);
-                    localStorage.setItem("sessionToken", btoa(data.sessionToken));
+                    sessionStorage.setItem("sessionToken", btoa(data.sessionToken));
                     if (keepLoggedIn)
                         localStorage.setItem("refreshToken", btoa(data.refreshToken));
                     setTimeout(function () {

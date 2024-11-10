@@ -190,7 +190,7 @@
             }, 1000);
         } else {
             console.log("Valid session. Logged in.")
-            const sessionToken = atob(localStorage.getItem("sessionToken"));
+            const sessionToken = atob(sessionStorage.getItem("sessionToken"));
             const data = await getUserData(["username", "email", "creation_date"], sessionToken);
             document.getElementById("main").style.contentVisibility = "visible";
             document.getElementById("loading").style.contentVisibility = "hidden";

@@ -15,7 +15,7 @@ export async function refreshSession() {
 
         if (response.status === 200) {
             console.log("Session refreshed.")
-            localStorage.setItem("sessionToken", btoa(result.sessionToken));
+            sessionStorage.setItem("sessionToken", btoa(result.sessionToken));
             return true;
         } else if (response.status === 403) {
             console.error(response.message);
@@ -32,7 +32,7 @@ export async function refreshSession() {
 }
 
 export async function isSessionValid() {
-    const sessionToken = atob(localStorage.getItem("sessionToken"));
+    const sessionToken = atob(sessionStorage.getItem("sessionToken"));
 
     const response = await fetch('https://oirf.online/app/api/user?fields=username', {
         method: 'GET',
@@ -49,7 +49,7 @@ export async function logout() {
     if (!isSessionValid())
         return;
 
-    const sessionToken = atob(localStorage.getItem("sessionToken"));
+    const sessionToken = atob(sessionStorage.getItem("sessionToken"));
     const refreshToken = atob(localStorage.getItem("refreshToken"));
 
     const response = await fetch('https://oirf.online/app/api/users/logout', {
@@ -58,8 +58,8 @@ export async function logout() {
     });
 
     if (response.status === 200) {
-        alert("You logged out.")
-        localStorage.removeItem("sessionToken");
+        alert("You have been logged out.")
+        sessionStorage.removeItem("sessionToken");
         localStorage.removeItem("refreshToken");
     }
 }
