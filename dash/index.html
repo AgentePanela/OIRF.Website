@@ -189,7 +189,7 @@
                 window.location = "/dash/login.html";
             }, 1000);
         } else {
-            const sessionToken = localStorage.getItem("sessionToken");
+            const sessionToken = atob(localStorage.getItem("sessionToken"));
             const data = getUserData(["username", "email", "creation_date"], sessionToken);
             document.getElementById("main").style.contentVisibility = "visible";
             document.getElementById("loading").style.contentVisibility = "hidden";
