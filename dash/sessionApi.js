@@ -8,7 +8,7 @@ export async function refreshSession() {
     try {
         const response = await fetch('https://oirf.online/app/api/users/refresh', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'X-Refresh-Token' : `Bearer: ${refreshToken}` }
+            headers: { 'Content-Type': 'application/json', 'X-Refresh-Token' : `${refreshToken}` }
         });
 		
         const result = await response.json();
