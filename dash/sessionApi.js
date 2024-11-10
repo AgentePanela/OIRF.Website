@@ -3,7 +3,7 @@ export async function refreshSession() {
     const refreshToken = atob(localStorage.getItem("refreshToken"));
 
     if(!refreshToken)
-        alert("You don't have an active session. Try logging in again, please.")
+        return;
 
     try {
         const response = await fetch('https://oirf.online/app/api/users/refresh', {
@@ -14,6 +14,7 @@ export async function refreshSession() {
         const result = await response.json();
 
         if (response.status === 200) {
+            console.log("Session refreshed.")
             localStorage.setItem("sessionToken", btoa(result.sessionToken));
             return true;
         } else if (response.status === 403) {

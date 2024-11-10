@@ -208,8 +208,11 @@
 
         //logout
         document.getElementById("logout").onclick = function () {
-            if (confirm("You really want logout?") == true) {
+            if (confirm("You really want to logout?") == true) {
                 logout();
+                setTimeout(function () {
+                window.location = "/dash/login.html";
+            }, 1000);
             }
         };
 
