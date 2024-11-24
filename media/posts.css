@@ -1,0 +1,21 @@
+.tittle {
+    line-height: 50%;
+}
+.tittle h3 {
+    text-align: left;
+}
+.tittle h4 {
+    text-align: left;
+    font-weight: normal;
+}
+
+.main {
+    max-width: 50%;
+    width: 100%;
+}
+
+.content {
+    padding: 15px;
+    text-align: left;
+    font-size: 17px;
+}

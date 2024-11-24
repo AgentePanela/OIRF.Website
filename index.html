@@ -26,6 +26,10 @@
         .head {
             line-height: 75%;
         }
+        /*.main {
+            max-width: 50%;
+            width: 100%;
+        }*/
     </style>
 </head>
 
@@ -46,6 +50,10 @@
     <button onclick="window.location='/dash/signup';">Create a account</button>
     <br>
     <br>
+    <h2>Recent posts:</h2>
+    <div class="postList" id="recentPosts"></div>
+    <br>
+    <br>
     <!-- <img class="cat" src="https://agentepanela.neocities.org/images/maintence_cat.png" alt="Worker Cat"> -->
     <div class="cover">
         <img class="cover" src="/media/gifs/OIRF-NES.gif" width="90%" height="90%" alt="Game Cover 3D">
@@ -53,5 +61,6 @@
     <br>
     <small>Internet&trade; and .html&trade; is a registered trademark of Omicron Incorporated.</small>
 </div>
+<script type="module" src="../postModule.js"></script>
 </body>
 </html>
