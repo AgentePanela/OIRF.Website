@@ -14,7 +14,7 @@ body {
     text-align: center;
     display: flex;
     flex-direction: column;
-    background-color: black;
+    background-color: rgb(9, 10, 12);
     color: whitesmoke;
     font-family: 'vcr';
     background-image: url('https://agentepanela.neocities.org/images/gameBg.png');
@@ -80,6 +80,17 @@ button:hover::after {
     background-color: #1e1e1e;
     position: relative;
     display: inline-block;
+}
+
+.section {
+    margin-top: 1%;
+    justify-content: left;
+    align-items: left;
+    text-align: left;
+    background-color: #161616;
+    padding: 15px;
+
+    word-wrap: break-word; /* Garante que palavras longas quebrem corretamente */
 }
 
 .main::before,

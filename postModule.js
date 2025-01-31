@@ -167,9 +167,12 @@
             desc = 'Post content not available'; // Mensagem de erro personalizada
         }
 
-        let html = "<li>"
+        let html = '<li class="angle-rect">'
 
-        imageExists(imgSrc, (exists) => exists && (html += `<img src="${imgSrc}" height="100" width="100">`));
+        imageExists(imgSrc, (exists) => {
+          if(exists)
+            html += `<img src="${imgSrc}" height="100" width="100">`;
+        });
         
         html += `<div><a href="${href}">${tittle}</a><br><small><span class="postDate">${date}</small><br><p>${desc}</p></div></li>`
         

@@ -24,12 +24,25 @@
         filter: grayscale(100%);
         }
         .head {
-            line-height: 75%;
+            line-height: 1px;
+            padding-bottom: 1px;
+            font-size: 125%;
         }
-        /*.main {
-            max-width: 50%;
-            width: 100%;
-        }*/
+        .head h2 {
+            letter-spacing: 3px;
+        }
+        .content {
+            padding-top: 0%;
+            font-size: medium;
+            line-height: normal;
+            list-style-type: "▮";
+        }
+        .content li {
+            margin-top: 2%;
+        }
+        .section img {
+            align-items: center;
+        }
     </style>
 </head>
 
@@ -38,15 +51,37 @@
 <!-- repo the navbar -->
 <div id=navbar-repo></div>
 
-<div class="main">
+<div class="main" style="width: 100%;">
     <h1>Omicron Inc. 
         Research Facility</h1>
     <br>
-    <!-- <img class="cat" src="https://agentepanela.neocities.org/images/maintence_cat.png" alt="Worker Cat"> -->
-    <div class="cover">
-        <img class="cover" src="/media/gifs/OIRF-NES.gif" width="90%" height="90%" alt="Game Cover 3D">
+    <div class="angle-rect"> <!-- infos -->
+        <div class="section"> <!-- about game -->
+            <div class="head">
+                <h3>Work</h3>
+                <h2>If You Can</h2>
+                <div class="content">
+                    <p>
+                        In 1985, in the frozen heart of Alaska, the Omicron Inc. research facility operates during the night shift. Amid experiments and unexpected failures, the staff's routine turns into a survival game. Mistakes are inevitable, and maintaining order can be as crucial as staying alive.
+                    </p>
+                </div>
+            </div>
+            <img class="angle-rect" src="/media/aboutCover.png" width="99%" height="90%" alt="About Cover">
+        </div>
+        <div class="section"> <!-- features -->
+            <div class="head">
+                <h3>Gameplay &</h3>
+                <h2>Features</h2>
+                <ul class="content">
+                    <li>Play as the facility director, engineer, operator, or security officer;</li>
+                    <li>Play with your friends - 100% online;</li>
+                    <li>Operate the facility's nuclear reactor, turbines, or machinery;</li>
+                    <li>Create stories with your characters.</li>
+                </ul>
+            </div>
+            <img class="angle-rect" src="/media/featuresCover.png" width="99%" height="90%" alt="About Cover">
+        </div>
     </div>
-    <br>
 </div>
 
 <div class="main" style="width: 100%;">
