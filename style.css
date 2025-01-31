@@ -14,11 +14,15 @@ body {
     text-align: center;
     display: flex;
     flex-direction: column;
-    background-color: #1e1e1e;
+    background-color: black;
     color: whitesmoke;
     font-family: 'vcr';
     background-image: url('https://agentepanela.neocities.org/images/gameBg.png');
     background-size: cover;
+}
+
+h1, h2, h3 {
+    text-transform: uppercase;
 }
 
 input {
@@ -29,16 +33,48 @@ input {
 }
 
 button {
-    background-color: transparent;
-    /*border: 2px solid whitesmoke;*/
-    /* border: none; */
-    font-family: 'vcr';
+    position: relative;
     color: whitesmoke;
-    padding: 1%;
+    padding: 10px;
+    padding-top: 6px;
+    margin-top: 5px;
+    text-transform: uppercase;
+    border: none;
+    background-color: transparent;
+    font-family: 'vcr';
+    vertical-align: middle;
+}
+
+button::before,
+button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 80%;
+    width: 10px;
+    border: 2px solid white;
+}
+
+button::before {
+    left: -1px;
+    border-right: none;
+}
+
+button::after {
+    right: -1px;
+    border-left: none;
+}
+
+button:hover::before {
+    left: 5px;
+}
+
+button:hover::after {
+    right: 5px;
 }
 
 .main {
-    max-width: 700px;
+    max-width: 800px;
     margin: 20px auto;
     padding: 20px;
     background-color: #1e1e1e;
@@ -124,12 +160,10 @@ header {
     color: yellow;
 }
 
-.postList {
-    font-size: larger;
-}
+/* posts area */
 
 .postList {
-    font-weight: bold;
+    font-size: larger;
 }
 
 .postList ul {
@@ -143,9 +177,9 @@ header {
     justify-content: left;
     align-items: left;
     text-align: left;
-    border-radius: 8px;
-    background-color: #f0f0f0;
+    background-color: #161616;
     padding: 15px;
+    /* border: 2px solid whitesmoke; */
 }
 
 .postList small{
@@ -163,4 +197,26 @@ header {
 
 .postList img {
     padding-right: 3%;
+}
+
+/* SS14 Style - get from spacestation14.com website */
+.angle-rect {
+    --angle-rect-clip-size: 16px;
+    -webkit-clip-path: polygon(0 0,calc(100% - var(--angle-rect-clip-size)) 0,100% var(--angle-rect-clip-size),100% 100%,var(--angle-rect-clip-size) 100%,0 calc(100% - var(--angle-rect-clip-size)));
+    clip-path: polygon(0 0,calc(100% - var(--angle-rect-clip-size)) 0,100% var(--angle-rect-clip-size),100% 100%,var(--angle-rect-clip-size) 100%,0 calc(100% - var(--angle-rect-clip-size)));
+}
+
+.angle-rect.open-tr {
+    -webkit-clip-path: polygon(0 0,100% 0,100% 100%,var(--angle-rect-clip-size) 100%,0 calc(100% - var(--angle-rect-clip-size)));
+    clip-path: polygon(0 0,100% 0,100% 100%,var(--angle-rect-clip-size) 100%,0 calc(100% - var(--angle-rect-clip-size)))
+}
+
+.angle-rect.open-bl {
+    -webkit-clip-path: polygon(0 0,calc(100% - var(--angle-rect-clip-size)) 0,100% var(--angle-rect-clip-size),100% 100%,0 100%);
+    clip-path: polygon(0 0,calc(100% - var(--angle-rect-clip-size)) 0,100% var(--angle-rect-clip-size),100% 100%,0 100%)
+}
+
+.angle-rect.open-tr.open-bl {
+    -webkit-clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
+    clip-path: polygon(0 0,100% 0,100% 100%,0 100%)
 }

@@ -11,7 +11,9 @@
   use a date it must still follow that format.*/
 
   let postsArray = [
-    [ "posts/2024-11-24-New-Blog.html" ] ];
+    [ "posts/2024-11-24-New-Blog.html" ],
+    [ "posts/2025-01-31-New-Year-New-Website.html" ],
+    ];
     
     //XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
     
@@ -164,8 +166,12 @@
             console.error('Error fetching post content:', error);
             desc = 'Post content not available'; // Mensagem de erro personalizada
         }
+
+        let html = "<li>"
+
+        imageExists(imgSrc, (exists) => exists && (html += `<img src="${imgSrc}" height="100" width="100">`));
         
-        let html = `<li><img src="${imgSrc}" height="100" width="100"><div><a href="${href}">${tittle}</a><br><small><span class="postDate">${date}</small><br><p>${desc}</p></div></li>`
+        html += `<div><a href="${href}">${tittle}</a><br><small><span class="postDate">${date}</small><br><p>${desc}</p></div></li>`
         
         return html;
     }
@@ -252,4 +258,12 @@
     //The <title> tag content is what shows up on browser tabs
     if (document.title === "post") {
       document.title = `post - ${currentPostTitle}`;
+    }
+
+    // Great Rework Edit
+    function imageExists(src, callback) {
+      const img = new Image();
+      img.onload = () => callback(true);
+      img.onerror = () => callback(false);
+      img.src = src;
     }

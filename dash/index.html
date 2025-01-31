@@ -30,7 +30,7 @@
         }
 
         .home {
-            content-visibility: hidden;
+            /*content-visibility: hidden;*/
             text-align: left;
         }
 
@@ -46,13 +46,13 @@
             margin-top: 3%;
             text-align: left;
             border-radius: 8px;
-            background-color: #f0f0f0;
+            background-color: #161616;
             padding: 15px;
         }
 
         .info h3 {
             text-align: left;
-            color: #0a0093;
+            /*color: #0a0093;*/
             padding: 1px;
             line-height: 1%;
         }
@@ -75,15 +75,14 @@
             margin-top: 3%;
             text-align: left;
             border-radius: 8px;
-            border-color: #0a0093;
             border-width: 5px;
-            background-color: #f0f0f0;
+            background-color: #161616;
             padding: 15px;
         }
 
         .option h3 {
             text-align: left;
-            color: #0a0093;
+            /*color: #0a0093;*/
             padding: 1px;
             line-height: 1%;
         }
@@ -122,7 +121,7 @@
                 <!-- <h2 id="welcomeText">hello {username}!</h2> -->
                 <br>
             </div>
-            <div class="info">
+            <div class="info angle-rect">
                 <div class="content">
                     <h3><span id="username"></span>:</h3>
                     <b>Creation date: </b> <span id="creationDate"></span> <br>
@@ -136,16 +135,16 @@
                 </div>
             </div>
             <!--todo: put a line here-->
-            <div class="option">
+            <div class="option angle-rect">
                 <h3><span class="sad">Log-out:</span></h3>
                 <button style="width: 100%;" type="submit" id="logout"><span class="sad">Log-out account</span></button>
             </div>
 
-            <div class="option">
+            <div class="option angle-rect">
                 <h3><span class="sad">All bellow options are WIP features!</span></h3>
             </div>
 
-            <div class="option">
+            <div class="option angle-rect">
                 <h3>Change email:</h3>
                 <form>
                     <label>New email: </label><Br>
@@ -153,22 +152,22 @@
                     <button id="newEmail">Confirm</button>
                 </form>
             </div>
-            <div class="option">
+            <div class="option angle-rect">
                 <h3>Change username:</h3>
                 <form>
-                    <label>New username: </label>
+                    <label>New username: </label><br>
                     <input style="width: 80%;">
                     <button id="newUsername">Confirm</button>
                 </form>
             </div>
-            <div class="option">
+            <div class="option angle-rect">
                 <h3>Change password:</h3>
                 <form>
                     <label><span class="sad">Old password</span>: </label>
                     <input style="width: 80%;"> <br><br>
                     <label><span class="happy">New password</span>: </label>
                     <input style="width: 80%;">
-                    <button id="newPassword">Confirm</button>
+                    <button id="newPassword" style="width: 100%;">Confirm</button>
                 </form>
             </div>
         </div>
