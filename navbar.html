@@ -22,15 +22,16 @@
     
 </header>
     <script type="module"> //remember to use type="module" when using a module script
-        import { autoLogin } from '/dash/autoLogin.js';
-    
+        import { isSessionValid } from '/dash/sessionApi.js?v=0.1.2';
+        import { getUserData } from '/dash/userApi.js?v=0.1.0';
+
         const element = document.getElementById("account")
-        const data = await autoLogin(); //await because autoLogin is async
-        if(data.code == 200){
-            let text = data.username;
-            element.innerText = text.toUpperCase();
-        }
-        else {
+
+        if (await isSessionValid()) {
+            const sessionToken = sessionStorage.getItem("sessionToken");
+            const data = await getUserData(["username"], sessionToken);
+            element.innerText = data.username.toUpperCase();
+        } else {
             element.innerText = "LOGIN";
         }
     </script>

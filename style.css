@@ -123,3 +123,44 @@ header {
 .navbar-login a:hover {
     color: yellow;
 }
+
+.postList {
+    font-size: larger;
+}
+
+.postList {
+    font-weight: bold;
+}
+
+.postList ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.postList li {
+    margin-top: 1%;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    text-align: left;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+    padding: 15px;
+}
+
+.postList small{
+    line-height: 1px;
+}
+
+.postList p{
+    line-height: 1px;
+    font-size: medium;
+}
+
+.postDate {
+    font-weight: normal;
+}
+
+.postList img {
+    padding-right: 3%;
+}
