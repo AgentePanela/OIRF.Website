@@ -3,77 +3,47 @@ html, body {
     margin: 0;
 }
 
-@font-face {
-    font-family: 'vcr';
-    src: url('vcr_osd_mono.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
 body {
     text-align: center;
     display: flex;
     flex-direction: column;
-    background-color: #1e1e1e;
-    color: whitesmoke;
-    font-family: 'vcr';
-    background-image: url('https://agentepanela.neocities.org/images/gameBg.png');
-    background-size: cover;
+    font-family: Comic Sans MS;
+    color: #000000;
+    background-color: #000000;
+    background-image: url('../media/background.gif');
+    background-position: top;
 }
 
 input {
     outline: none;
     border-radius: 0%;
-    font-family: 'vcr';
+    font-family: Comic Sans MS;
     border-color: black;
 }
 
 button {
-    background-color: transparent;
-    /*border: 2px solid whitesmoke;*/
-    /* border: none; */
-    font-family: 'vcr';
-    color: whitesmoke;
-    padding: 1%;
+    outline: none;
+    border-radius: 0%;
+    font-family: Comic Sans MS;
+    border-color: black;
 }
 
 .main {
-    max-width: 700px;
+    max-width: 600px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #1e1e1e;
-    position: relative;
-    display: inline-block;
-}
-
-.main::before,
-.main::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 10px;
-    border: 2px solid white;
-}
-
-.main::before {
-  left: -1px;
-  border-right: none;
-}
-
-.main::after {
-  right: -1px;
-  border-left: none;
+    background-color: #ffffff;
 }
 
 /* navbar */
 header {
-    background-color: #1e1e1e;
+    background-color: #0a0093;
     padding: 10px 20px;
-    border-bottom: 1px solid whitesmoke;
+    border-bottom: 1px solid yellow;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
 }
 
 /* Logo à esquerda */
