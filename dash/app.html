@@ -39,8 +39,10 @@
             const sessionToken = sessionStorage.getItem("sessionToken");
             const refreshToken = localStorage.getItem("refreshToken");
 
-            //console.log(sessionToken)
-            //console.log(refreshToken)
+            /// I used this for debug
+            /*console.log(sessionToken);
+            console.log(refreshToken);
+            navigator.clipboard.writeText(`oirf://?sessionToken=${sessionToken}&refreshToken=${refreshToken}`);*/
 
             window.location.replace(`oirf://?sessionToken=${sessionToken}&refreshToken=${refreshToken}`);
             window.location.replace(`/dash/`);
