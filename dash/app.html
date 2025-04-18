@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omicron Inc. Research Facility</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script src="../navLoader.js"></script> -->
+
+    <!-- <meta property="og:title" content="Omicron Inc. Research Facility">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://oirf.online">
+    <meta property="og:image" content="/LogoNoBg.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:description" content="Welcome to the Omicron Inc. Research Facility!">
+    <meta name="theme-color" content="#0E0093"> -->
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link href="/style.css?v=1.0" rel="stylesheet" type="text/css" media="all">
+</head>
+
+<body>
+    <div class="main">
+        <h2> Please Wait... </h2>
+        <img class="loading" src="/media/gifs/loading.gif" alt="loading...">
+    </div>
+
+    <script type="module">
+        import { refreshSession, isSessionValid, logout } from '/dash/sessionApi.js?v=0.1.2';
+        import { getUserData } from '/dash/userApi.js?v=0.1.0';
+
+        if (!(await isSessionValid())) {
+            alert("You don't have an active session. Please log in or create an account!")
+            setTimeout(function () {
+                window.location = "/dash/login.html";
+            }, 1000);
+        } else {
+            const sessionToken = sessionStorage.getItem("sessionToken");
+            const refreshToken = localStorage.getItem("refreshToken");
+
+            window.location.replace(`oirf://?sessionToken=${sessionToken}?refereshToken=${refreshToken}`);
+            window.location.replace(`/dash/`);
+            //close();
+        }
+    </script>
+</body>
