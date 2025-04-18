@@ -39,7 +39,10 @@
             const sessionToken = sessionStorage.getItem("sessionToken");
             const refreshToken = localStorage.getItem("refreshToken");
 
-            window.location.replace(`oirf://?sessionToken=${sessionToken}?refereshToken=${refreshToken}`);
+            //console.log(sessionToken)
+            //console.log(refreshToken)
+
+            window.location.replace(`oirf://?sessionToken=${sessionToken}&refreshToken=${refreshToken}`);
             window.location.replace(`/dash/`);
             //close();
         }
