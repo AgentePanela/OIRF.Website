@@ -43,6 +43,49 @@
         .section img {
             align-items: center;
         }
+        .countdown {
+            font-size: 2em
+        }
+        .countdownLabel {
+            line-height: 1px;
+        }
+        .rainbow {
+            background-image: repeating-linear-gradient(45deg, violet, indigo, blue, green, yellow, orange, red, violet);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 800% 800%;
+            animation: rainbowAnim 5s ease infinite;
+        }
+
+        @keyframes rainbowAnim {
+            0% {
+                background-position: 0% 50%
+            }
+
+            50% {
+                background-position: 100% 25%
+            }
+
+            100% {
+                background-position: 0% 50%
+            }
+        }
+
+        .confetti {
+            position: fixed;
+            top: -10px;
+            border-radius: 50%;
+            opacity: 0.9;
+            z-index: 9999;
+            animation: fall 4s linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotateZ(360deg);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 
@@ -50,6 +93,13 @@
 
 <!-- repo the navbar -->
 <div id=navbar-repo></div>
+
+<div class="main countdownDiv" style="width: 100%;">
+    <div class="countdownLabel">
+    <h2>OIRF Public Playtest in:</h2>
+    </div>
+    <p id="countdown" class="countdown">00:00:00</p>
+</div>
 
 <div class="main" style="width: 100%;">
     <h1>Omicron Inc. 
@@ -94,6 +144,61 @@
         <small>Internet&trade; and .html&trade; is a registered trademark of Omicron Incorporated.</small>
     </div>
 </footer>
+
+<script>
+    const countdownElement = document.getElementById("countdown");
+    const targetDate = new Date("2025-07-30T00:00:00Z").getTime();
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        if (distance <= 0) {
+            countdownElement.innerHTML = `
+                <a href="https://discord.gg/AwZkzHt8he" class="countdown rainbow"> PLAYTEST STARTED! </a>`;
+            startConfetti();
+            clearInterval(interval);
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        countdownElement.innerText = 
+            `${String(days).padStart(2, '0')}d `
+          + `${String(hours).padStart(2, '0')}h `
+          + `${String(minutes).padStart(2, '0')}m `
+          + `${String(seconds).padStart(2, '0')}s`;
+    }
+
+    const interval = setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    function startConfetti() {
+            const colors = ['#ff0', '#f0f', '#0ff', '#f00', '#0f0', '#00f'];
+
+        const interval = setInterval(() => {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+
+            const size = Math.floor(Math.random() * 8) + 4;
+            confetti.style.width = `${size}px`;
+            confetti.style.height = `${size}px`;
+
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+
+            document.body.appendChild(confetti);
+
+            setTimeout(() => {
+                confetti.remove();
+            }, 4000);
+        }, 75);
+    }
+</script>
 
 <script type="module" src="../postModule.js"></script>
 </body>
