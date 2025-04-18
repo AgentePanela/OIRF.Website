@@ -196,6 +196,12 @@
         function play() {
             window.location.assign("/dash/app.html");
         }
+
+        if (document.getElementById("countdownEnded")) {
+            document.getElementById("play").style.display = "block";
+        } else {
+            document.getElementById("play").style.display = "none";
+        }
     </script>
 
     <script type="module"> //remember to use type="module" when using a module script

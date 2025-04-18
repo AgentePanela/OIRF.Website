@@ -9,7 +9,7 @@ function updateCountdown() {
 
     if (distance <= 0) {
         countdownElement.innerHTML = `
-            <a href="https://discord.gg/AwZkzHt8he" id="countdownStarted" class="countdown rainbow"> PLAYTEST STARTED! </a>`;
+            <a href="https://discord.gg/AwZkzHt8he" id="countdownEnded" class="countdown rainbow"> PLAYTEST STARTED! </a>`;
         startConfetti();
         clearInterval(interval);
         playtest = true;
