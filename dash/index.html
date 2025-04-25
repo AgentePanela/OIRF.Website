@@ -8,17 +8,17 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- for load the navbar script -->
     <script src="../navLoader.js"></script>
 
-    <meta property="og:title" content="OIRF Account Manager">
+    <meta property="og:title" content="Omicron Inc. Research Facility">
     <meta property=”og:type” content=”website“ />
     <meta property="og:url" content="https://oirf.online">
-    <meta property="og:image" content="/LogoNoBg.png">
+    <meta property="og:image" content="/logo.png">
     <meta property="og:image:type" content="image/png">
     <meta property="og:description" content="Manage your account">
     <meta name="theme-color" content="#0E0093">
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
-    <link href="/style.css?v=1.0" rel="stylesheet" type="text/css" media="all" href="css/yourStyles.css?version=1">
+    <link href="/../media/style.css?v=1.0" rel="stylesheet" type="text/css" media="all" href="css/yourStyles.css?version=1">
 
     <style>
         .loading {
@@ -196,23 +196,22 @@
         function play() {
             window.location.assign("/dash/app.html");
         }
-        setTimeout(() => {
+        setTimeout(() => seeCountdown(), 1000);
+
+        function seeCountdown() {
             if (document.getElementById("countdownEnded")) {
             document.getElementById("play").style.display = "block";
             } else {
                 document.getElementById("play").style.display = "none";
             }
-        }, 1000);
+        }
+
+        seeCountdown(); // this fixes button appearing for one secound
     </script>
 
     <script type="module"> //remember to use type="module" when using a module script
         import { refreshSession, isSessionValid, logout } from '/dash/sessionApi.js?v=0.1.2';
         import { getUserData } from '/dash/userApi.js?v=0.1.0';
-        //import { playtest } from '/countdown.js';
-
-        /*if (playtest) {
-            document.getElementById("play").style.contentVisibility = "visible";
-        }*/
 
         if (!(await isSessionValid())) {
             alert("You don't have an active session. Please log in or create an account")

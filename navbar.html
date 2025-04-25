@@ -17,7 +17,7 @@
         <!-- <img src="../media/gifs/Money.gif" onclick="window.location='/buy';" height='54' style="padding-left: 1%;" alt="secrets!"> -->
     </div>
     <div class="navbar-login">
-        <a class="nav-link" id="account" href="/dash/">ACCOUNT</a>
+        <a class="nav-link" id="navAccount" href="/dash/">ACCOUNT</a>
     </div>
     
 </header>
@@ -25,7 +25,7 @@
         import { isSessionValid } from '/dash/sessionApi.js?v=0.1.2';
         import { getUserData } from '/dash/userApi.js?v=0.1.0';
 
-        const element = document.getElementById("account")
+        const element = document.getElementById("navAccount")
 
         if (await isSessionValid()) {
             const sessionToken = sessionStorage.getItem("sessionToken");
