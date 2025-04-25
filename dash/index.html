@@ -127,7 +127,7 @@
                     <!-- > Achivements: <span id="games" class="sad"></span> -->
                 </div>
                 <div class="gif">
-                    <img src="../media/Account.png" alt="you!"><br>
+                    <img src="../media/Account.png" id="you" alt="you!"><br>
                     <small class="center">A company friend.</small>
                 </div>
             </div>
@@ -295,6 +295,11 @@
             event.preventDefault();
             alert("WIP!")
         };
+
+        $(document).ready(function(){
+            if (localStorage.getItem("oldStyle") == 'true')
+                document.getElementById("you").setAttribute("src", "/media/gifs/happy.gif");
+        });
     </script>
 </body>
 
