@@ -292,6 +292,26 @@ header {
     clip-path: polygon(0 0,100% 0,100% 100%,0 100%)
 }
 
+.option {
+    margin-top: 3%;
+    text-align: left;
+    border-radius: 8px;
+    border-width: 5px;
+    background-color: #161616;
+    padding: 15px;
+}
+
+.option h3 {
+    text-align: left;
+    /*color: #0a0093;*/
+    padding: 1px;
+    line-height: 1%;
+}
+
+.option label {
+    text-align: left;
+}
+
 /* new checkbox */
 /*
 .checkbox input[type="checkbox"] {

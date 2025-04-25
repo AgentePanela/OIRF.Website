@@ -18,7 +18,7 @@
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
-    <link href="/../media/style.css?v=1.0" rel="stylesheet" type="text/css" media="all" href="css/yourStyles.css?version=1">
+    <link href="/../media/style.css?v=1.0" rel="stylesheet" type="text/css" media="all">
 
     <style>
         .loading {
@@ -79,26 +79,6 @@
             width: 250px;
         }
 
-        .option {
-            margin-top: 3%;
-            text-align: left;
-            border-radius: 8px;
-            border-width: 5px;
-            background-color: #161616;
-            padding: 15px;
-        }
-
-        .option h3 {
-            text-align: left;
-            /*color: #0a0093;*/
-            padding: 1px;
-            line-height: 1%;
-        }
-
-        .option label {
-            text-align: left;
-        }
-
         .blue {
             color: #0a0093;
         }
@@ -149,6 +129,10 @@
                         <div class="checkbox">
                             <input type="checkbox" id="countdownCheck" class="checkbox">
                             <label class="checkbox" for="countdownCheck">Disable countdown</label>
+                        </div> 
+                        <div class="checkbox">
+                            <input type="checkbox" id="style" class="checkbox">
+                            <label class="checkbox" for="style">Old website style</label>
                         </div> 
                     </div> 
                     <!-- > Achivements: <span id="games" class="sad"></span> -->
@@ -225,7 +209,6 @@
 
     <script>
         const checkbox = document.getElementById('sprites');
-
         const sprites = localStorage.getItem('sprites');
         if (sprites === 'false') {
             checkbox.checked = true;
@@ -237,8 +220,9 @@
             localStorage.setItem('sprites', checkbox.checked ? 'false' : 'true');
         });
 
-        const countdown = document.getElementById('countdownCheck');
+        //
 
+        const countdown = document.getElementById('countdownCheck');
         const countValue = localStorage.getItem('countdown');
         if (countValue === 'false') {
             countdown.checked = true;
@@ -248,6 +232,21 @@
 
         countdown.addEventListener('change', () => {
             localStorage.setItem('countdown', countdown.checked ? 'false' : 'true');
+            location.reload();
+        });
+
+        //
+
+        const styleCheck = document.getElementById('style');
+        const style = localStorage.getItem('oldStyle');
+        if (style === 'false') {
+            styleCheck.checked = true;
+        } else {
+            styleCheck.checked = false;
+        }
+
+        countdown.addEventListener('change', () => {
+            localStorage.setItem('countdown', styleCheck.checked ? 'false' : 'true');
             location.reload();
         });
     </script>

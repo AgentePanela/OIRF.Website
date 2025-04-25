@@ -29,7 +29,8 @@ button {
 }
 
 .main {
-    max-width: 600px;
+    /*max-width: 600px; new style change */
+    max-width: 800px;
     margin: 20px auto;
     padding: 20px;
     background-color: #ffffff;
@@ -92,4 +93,132 @@ header {
 
 .navbar-login a:hover {
     color: yellow;
+}
+
+/* posts */
+
+.postList {
+    font-size: larger;
+}
+
+.postList {
+    font-weight: bold;
+}
+
+.postList ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.postList li {
+    margin-top: 1%;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    text-align: left;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+    padding: 15px;
+}
+
+.postList small{
+    line-height: 1px;
+}
+
+.postList p{
+    line-height: 1px;
+    font-size: medium;
+}
+
+.postDate {
+    font-weight: normal;
+}
+
+.postList img {
+    padding-right: 3%;
+}
+
+/* new style changes */
+.angle-rect {
+    border-radius: 5px;
+}
+
+/* Countdown start */
+.countdown {
+    font-size: 2em
+}
+.countdownLabel {
+    line-height: 1px;
+}
+.rainbow {
+    background-image: repeating-linear-gradient(45deg, violet, indigo, blue, green, yellow, orange, red, violet);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 800% 800%;
+    animation: rainbowAnim 5s ease infinite;
+}
+
+@keyframes rainbowAnim {
+    0% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 25%
+    }
+
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+/* Countdown end*/
+/* background sprites */
+.sprite {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background-size: cover;
+    transform-origin: center center;
+    will-change: transform, opacity, left, top;
+    image-rendering: pixelated;
+    pointer-events: none;
+    opacity: 0.75;
+    z-index: -1;
+}
+
+@keyframes fly {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+      opacity: 1;
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: translate(var(--dx), var(--dy));
+      opacity: 0.6;
+    }
+    to {
+        transform: rotate(1turn);
+    }
+}
+/* background sprites end */
+
+.option {
+    margin-top: 3%;
+    text-align: left;
+    border-radius: 8px;
+    border-width: 5px;
+    background-color: #bbb6b6;
+    padding: 15px;
+}
+
+.option h3 {
+    text-align: left;
+    color: #0a0093;
+    padding: 1px;
+    line-height: 1%;
+}
+
+.option label {
+    text-align: left;
 }
