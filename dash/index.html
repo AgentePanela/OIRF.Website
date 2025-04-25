@@ -139,6 +139,18 @@
                     > Creation date: <span class="field" id="creationDate"></span> <br>
                     > Email: <span class="field" id="email"></span> <br>
                     > Admin: <span class="field" id="admin"></span> <br>
+                    <hr>
+                    <div>
+                    > Website preferences:
+                        <div class="checkbox">
+                            <input type="checkbox" id="sprites" class="checkbox">
+                            <label class="checkbox" for="sprites">Disable background sprites</label>
+                        </div> 
+                        <div class="checkbox">
+                            <input type="checkbox" id="countdownCheck" class="checkbox">
+                            <label class="checkbox" for="countdownCheck">Disable countdown</label>
+                        </div> 
+                    </div> 
                     <!-- > Achivements: <span id="games" class="sad"></span> -->
                 </div>
                 <div class="gif">
@@ -146,17 +158,19 @@
                     <small class="center">A company friend.</small>
                 </div>
             </div>
+            <br>
+            <hr>
 
             <div class="option angle-rect" id="play">
                 <button style="width: 100%; height: 150%;" onclick="play()"><span class="big rainbow">Open OIRF</span></button>
             </div>
-
-            <!--todo: put a line here-->
+            
             <div class="option angle-rect">
                 <h3><span class="sad">Log-out:</span></h3>
                 <button style="width: 100%;" type="submit" id="logout"><span class="sad">Log-out account</span></button>
-            </div>
-
+            </div> <br>
+            <hr>
+            <h3>Change Account Information:</h3>
             <div class="option angle-rect">
                 <h3><span class="sad">All bellow options are WIP features!</span></h3>
             </div>
@@ -207,6 +221,35 @@
         }
 
         seeCountdown(); // this fixes button appearing for one secound
+    </script>
+
+    <script>
+        const checkbox = document.getElementById('sprites');
+
+        const sprites = localStorage.getItem('sprites');
+        if (sprites === 'false') {
+            checkbox.checked = true;
+        } else {
+            checkbox.checked = false;
+        }
+
+        checkbox.addEventListener('change', () => {
+            localStorage.setItem('sprites', checkbox.checked ? 'false' : 'true');
+        });
+
+        const countdown = document.getElementById('countdownCheck');
+
+        const countValue = localStorage.getItem('countdown');
+        if (countValue === 'false') {
+            countdown.checked = true;
+        } else {
+            countdown.checked = false;
+        }
+
+        countdown.addEventListener('change', () => {
+            localStorage.setItem('countdown', countdown.checked ? 'false' : 'true');
+            location.reload();
+        });
     </script>
 
     <script type="module"> //remember to use type="module" when using a module script

@@ -27,23 +27,36 @@
     }
 }
 
-.confetti {
-    position: fixed;
-    top: -10px;
-    border-radius: 50%;
-    opacity: 0.9;
-    z-index: 9999;
-    animation: fall 4s linear forwards;
+/* Countdown end*/
+/* background sprites */
+.sprite {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background-size: cover;
+    transform-origin: center center;
+    will-change: transform, opacity, left, top;
+    image-rendering: pixelated;
+    pointer-events: none;
+    opacity: 0.75;
+    z-index: -1;
 }
 
-@keyframes fall {
+@keyframes fly {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+      opacity: 1;
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: translate(var(--dx), var(--dy));
+      opacity: 0.6;
+    }
     to {
-        transform: translateY(100vh) rotateZ(360deg);
-        opacity: 0;
+        transform: rotate(1turn);
     }
 }
-
-/* Countdown end*/
+/* background sprites end */
 
 html, body {
     height: 100%;
@@ -278,3 +291,25 @@ header {
     -webkit-clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
     clip-path: polygon(0 0,100% 0,100% 100%,0 100%)
 }
+
+/* new checkbox */
+/*
+.checkbox input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox label {
+    position: relative;
+    padding-left: 24px;
+    cursor: pointer;
+}
+
+.checkbox label::before {
+    content: "[ ]";
+    position: absolute;
+    left: 0;
+}
+
+.checkbox input[type="checkbox"]:checked + label::before {
+    content: "[x]";
+}*/

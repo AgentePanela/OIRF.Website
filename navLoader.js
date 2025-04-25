@@ -4,6 +4,8 @@ $(document).ready(function(){
     console.log("nav loaded");
 
     // cowntdown
+    if (localStorage.getItem("countdown") == 'false')
+        return;
     const countdownDiv = `
         <div class="main countdownDiv" style="width: 100%;">
             <div class="countdownLabel">
@@ -12,6 +14,7 @@ $(document).ready(function(){
             <p id="countdown" class="countdown">00:00:00</p>
         </div>
         <script src="/countdown.js"></script>
+        <script src="/mainModule.js"></script>
     `;
     
     $("#navbar-repo").after(countdownDiv);
