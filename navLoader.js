@@ -1,5 +1,6 @@
 // carrega a navbar
 $(document).ready(function(){
+    valideStorage();
     $("#navbar-repo").load("/navbar.html");
     console.log("nav loaded");
 
@@ -24,3 +25,14 @@ $(document).ready(function(){
         $("#navbar-repo").after(countdownDiv);
     }
 });
+
+function valideStorage() {
+    if (!localStorage.getItem("oldStyle"))
+        localStorage.setItem("oldStyle", "false");
+
+    if (!localStorage.getItem("countdown"))
+        localStorage.setItem("countdown", "true");
+
+    if (!localStorage.getItem("sprites"))
+        localStorage.setItem("sprites", "true")
+}
