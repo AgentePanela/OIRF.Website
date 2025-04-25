@@ -312,6 +312,17 @@ header {
     text-align: left;
 }
 
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 3%;
+    text-align: left;
+    border-radius: 8px;
+    background-color: #161616;
+    padding: 15px;
+}
+
 /* new checkbox */
 /*
 .checkbox input[type="checkbox"] {

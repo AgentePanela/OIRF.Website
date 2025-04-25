@@ -39,17 +39,6 @@
             text-align: center;
         }
 
-        .info {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-top: 3%;
-            text-align: left;
-            border-radius: 8px;
-            background-color: #161616;
-            padding: 15px;
-        }
-
         .content {
             line-height: 115%;
         }
@@ -240,13 +229,13 @@
         const styleCheck = document.getElementById('style');
         const style = localStorage.getItem('oldStyle');
         if (style === 'false') {
-            styleCheck.checked = true;
-        } else {
             styleCheck.checked = false;
+        } else {
+            styleCheck.checked = true;
         }
 
-        countdown.addEventListener('change', () => {
-            localStorage.setItem('countdown', styleCheck.checked ? 'false' : 'true');
+        styleCheck.addEventListener('change', () => {
+            localStorage.setItem('oldStyle', styleCheck.checked ? 'true' : 'false');
             location.reload();
         });
     </script>

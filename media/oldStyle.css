@@ -222,3 +222,14 @@ header {
 .option label {
     text-align: left;
 }
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 3%;
+    text-align: left;
+    border-radius: 8px;
+    background-color: #bbb6b6;
+    padding: 15px;
+}
