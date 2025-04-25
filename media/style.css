@@ -27,7 +27,24 @@
     }
 }
 
+.confetti {
+    position: fixed;
+    top: -10px;
+    border-radius: 50%;
+    opacity: 0.9;
+    z-index: 9999;
+    animation: fall 4s linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotateZ(360deg);
+        opacity: 0;
+    }
+}
+
 /* Countdown end*/
+
 /* background sprites */
 .sprite {
     position: absolute;
